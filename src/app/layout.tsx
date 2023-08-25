@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} flex justify-center flex-col items-center py-6 bg-slate-950`}>
+
+        <Link href={'/'} className='text-4xl'>CryptoDash</Link>
+        {children}
+        
+      </body>
     </html>
   )
 }
