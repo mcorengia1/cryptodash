@@ -1,11 +1,11 @@
 import { XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area } from "recharts"
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function CustomAreaChart(params: any) {
-    const xInterval = Math.ceil(100 - (window.innerWidth / 100))
     const [selectedData, setSelectedData] = useState('Price')
+    const [xInterval, setXInterval] = useState(30)
 
     const yTickFormatter = (value: number) => {
         if (value > 999999) {
@@ -27,6 +27,10 @@ export default function CustomAreaChart(params: any) {
 
         return date.getMonth() + '/' + year.slice(2,)
     }
+
+    useEffect(() => {
+        setXInterval(Math.ceil(100 - (window.innerWidth / 100)))
+    }, [])
 
     return (<>
         <ToggleButtonGroup

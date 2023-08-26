@@ -23,9 +23,9 @@ export default function Home() {
   return (
     <main className='flex justify-center items-center flex-col w-full'>
 
-      <div className="flex flex-col justify-center items-center w-full md:w-3/5 my-6">
-        {selectedCoins.map((coin, i) => <CoinItem coin={coin} index={i + VALUES_PER_PAGE * (coinsPage - 1)} />)}
-      </div>
+      <ul className="flex flex-col justify-center items-center w-full md:w-3/5 my-6">
+        {selectedCoins.map((coin, i) => <CoinItem coin={coin} index={i + VALUES_PER_PAGE * (coinsPage - 1)} key={i} />)}
+      </ul>
 
       <Pagination color="primary" sx={{ button: { color: '#ffffff' } }} count={Math.ceil(coinsList.length / VALUES_PER_PAGE)}
         page={coinsPage} onChange={(e, value) => setCoinsPage(value)} />

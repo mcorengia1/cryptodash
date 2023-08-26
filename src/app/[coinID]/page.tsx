@@ -50,14 +50,14 @@ export default function Page({ params }: { params: { coinID: string } }) {
             </div>
         </>}
 
-        <CustomAreaChart graphData={historyGraphData} /> 
+        <CustomAreaChart graphData={historyGraphData} />
 
         {!coinInfo ? null : <div className="flex flex-col gap-4">
             {coinInfo.categories.length > 0 ?
                 <div>
                     <span>Tags:</span>
                     <div className="flex gap-1 flex-wrap">
-                        {coinInfo.categories.map((category: string) => { return <span className="px-1 text-xs bg-black/75">{category}.</span> })}
+                        {coinInfo.categories.map((category: string, i: number) => { return <span key={i} className="px-1 text-xs bg-black/75">{category}.</span> })}
                     </div>
                 </div> : null}
 
