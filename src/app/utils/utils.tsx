@@ -11,6 +11,7 @@ export async function setFromRequest(URL: string, setFunction: any) {
 
     } catch (error) {
         console.error('Error fetching coins list:', error)
+        setFunction(null)
         return 1
     }
 };

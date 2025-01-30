@@ -18,10 +18,10 @@ export default function CoinItem(props: any) {
     }, [props.coin])
 
     return (
-        <li className="flex justify-start items-center cursor-pointer w-full p-3 gap-x-4 hover:bg-white/25 border-b"
+        <li className="flex justify-start items-center cursor-pointer w-full p-3 gap-x-4 hover:bg-white/25 border-b border-neutral-600  transition-colors"
             onClick={() => router.push(`/${props.coin.id}`)}>
 
-            <span className="text-sm">{props.index}</span>
+            <span className="text-sm">{props.index + 1}</span>
             <img src={props.coin.image} width={25} height={25} />
             <span className="grow">{props.coin.name}</span>
             <span className="text-xs text-stone-200">{(props.coin.symbol).toUpperCase()}</span>
